@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/javax.servlet/servlet-api
+    compileOnly group: 'javax.servlet', name: 'servlet-api', version: '3.0-alpha-1'
+    // https://mvnrepository.com/artifact/io.reactivex.rxjava3/rxjava
+    implementation group: 'io.reactivex.rxjava3', name: 'rxjava', version: '3.0.13'
+    compileOnly 'org.projectlombok:lombok:1.16.16'
+    annotationProcessor 'org.projectlombok:lombok:1.16.16'
+    // https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-server
+    implementation group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.12.RC2'
+    // https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlet
+    implementation group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '9.4.12.RC2'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.0-alpha0'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.0'
+    // https://mvnrepository.com/artifact/com.codahale.metrics/metrics-core
+    implementation group: 'com.codahale.metrics', name: 'metrics-core', version: '3.0.2'
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
