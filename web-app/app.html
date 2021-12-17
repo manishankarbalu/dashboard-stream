@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <div class="heading">
+        <img src="assets/icon.png">
+        <div class="headingText">StreamDashboard</div>
+    </div>
+
+    <!-- <hr class="lineSeparator"> -->
+    <div class="nav">
+        <div class="sortFunc">
+            <div>Sort: </div>
+            <a class="sortOption column">Error then volume</a>
+            <a class="sortOption column">Alphabetical</a>
+            <a class="sortOption column">Volume</a>
+            <a class="sortOption column">Error</a>
+            <a class="sortOption column">99.5</a>
+        </div>
+        <div class="legend">
+            <div class="legendOption column successColor">Success</div>
+            <div class="legendOption column circuitColor">Short-Circuited</div>
+            <div class="legendOption column timeoutColor">Timeout</div>
+            <div class="legendOption column threadPoolRejectedColor">Rejected</div>
+            <div class="legendOption column errorColor">Failure</div>
+        </div>
+    </div>
+    <hr class="lineSeparator">
+    <div class="container">
+        <div class="topRow">
+            <div class="graph"></div>
+            <div class="cmdMetrics">
+                <div class="commandName">AntiEntropyCommand</div>
+                <div class="metrics-data">
+                    <div class="col1 column">
+                        <div class="successCount metricValue">200545</div>
+                        <div class="circuitCount metricValue">0</div>
+                    </div>
+                    <div class="col2 column">
+                        <div class="timeoutCount metricValue">
+                            19
+                        </div>
+                        <div class="threadPoolRejectedCount metricValue">
+                            94
+                        </div>
+                        <div class="errorCount metricValue">
+                            0
+                        </div>
+                    </div>
+                    <div class="col3 column">
+                        <div class="errorPercentage metricValue">
+                            0.0%
+                        </div>
+                    </div>
+                </div>
+                <div class="requestRate">
+                    <div class="host">
+                        <div class="label">Host : </div>
+                        <div class="value">54.0/2</div>
+                    </div>
+                    <div class="cluster">
+                        <div class="label">Cluster : </div>
+                        <div class="value">20,056.0/s</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottomRow">
+            <div class="circuitStatus">
+                <div class="label">Circuit : </div>
+                <div class="cvalue">CLOSED</div>
+            </div>
+            <div class="latencyMetrics">
+                <div class="lcol1">
+                    <div class="llabel">Hosts</div>
+                    <div class="llabel">Median</div>
+                    <div class="llabel">Mean</div>
+                </div>
+                <div class="lcol2">
+                    <div class="lvalue">1</div>
+                    <div class="lvalue">1ms</div>
+                    <div class="lvalue">4ms</div>
+                </div>
+                <div class="lcol3">
+                    <div class="llabel">90th</div>
+                    <div class="llabel">99th</div>
+                    <div class="llabel">99.5th</div>
+                </div>
+                <div class="lcol4">
+                    <div class="lvalue">10ms</div>
+                    <div class="lvalue">44ms</div>
+                    <div class="lvalue">61ms</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
