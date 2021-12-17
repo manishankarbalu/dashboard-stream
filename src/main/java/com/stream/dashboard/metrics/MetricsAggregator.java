@@ -51,22 +51,23 @@ public class MetricsAggregator {
     public CommandMetricsData getCommandMetricsFromSample(SimpleMetric simpleMetric) {
         return CommandMetricsData.builder()
                 .threadPoolRejectedCount(simpleMetric.getThreadPoolRejectedCount())
+                .successCount(simpleMetric.getSuccess())
                 .errorCount(simpleMetric.getTotal() - simpleMetric.getSuccess())
                 .total(simpleMetric.getTotal())
                 .timeoutCount(1)
                 .commandHealth(getHealthStatus(simpleMetric.getTotal(), simpleMetric.getSuccess()))
                 .commandName(simpleMetric.getCommandName())
                 .circuitStatus(CommandMetricsData.CircuitStatus.CLOSED)
-                .qps(new ArrayList<>())//simpleMetric.getTimeTaken().stream().skip(Math.max(0, simpleMetric.getTimeTaken().size() - 10)).mapToInt(Double::intValue).boxed().collect(Collectors.toList()))
+                .qps(simpleMetric.getTimeTaken().stream().limit(10).mapToInt(Double::intValue).boxed().collect(Collectors.toList()))
                 .latency(getLatency(simpleMetric))
                 .build();
     }
 
     public CommandMetricsData.HealthStatus getHealthStatus(int total, int success) {
-        float successRatio = success / total;
+        float successRatio = success / (float)total;
         if (successRatio > 0.9) {
             return CommandMetricsData.HealthStatus.GREEN;
-        } else if (successRatio > 0.7) {
+        } else if (successRatio > 0.4) {
             return CommandMetricsData.HealthStatus.YELLOW;
         } else {
             return CommandMetricsData.HealthStatus.RED;

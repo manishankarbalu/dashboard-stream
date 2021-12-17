@@ -8,8 +8,6 @@ import java.util.concurrent.RejectedExecutionException;
 public abstract class AbstractMetricsCommand<T> {
     private final IMetricNotifier metricNotifier;
     private final String commandName;
-    private boolean isSuccess = true;
-    private boolean isRejected = false;
 
     protected AbstractMetricsCommand(IMetricNotifier metricNotifier, String commandName) {
         this.metricNotifier = metricNotifier;
@@ -19,7 +17,8 @@ public abstract class AbstractMetricsCommand<T> {
     protected abstract T run();
 
     public T execute() {
-
+        boolean isSuccess = true;
+        boolean isRejected = false;
         long start = System.currentTimeMillis();
         try {
             return run();

@@ -56,6 +56,7 @@ public class SSEServlet extends HttpServlet {
         response.setHeader("Content-Type", "text/event-stream;charset=UTF-8");
         response.setHeader("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
         response.setHeader("Pragma", "no-cache");
+        response.setHeader("Access-Control-Allow-Origin","http://127.0.0.1");
 
         final PrintWriter writer = response.getWriter();
         Consumer<String> onNextImpl = data -> {
