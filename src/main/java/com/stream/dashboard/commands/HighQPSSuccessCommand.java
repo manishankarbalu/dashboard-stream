@@ -12,7 +12,7 @@ public class HighQPSSuccessCommand extends AbstractMetricsCommand<String> {
 
     @Override
     protected String run() {
-        Utils.simulateDelay(20, 30);
+        Utils.simulateDelay(10, 20);
         return "Success";
     }
 }

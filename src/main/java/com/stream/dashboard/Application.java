@@ -35,7 +35,7 @@ public class Application {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(5);
 
         try {
-            executor.scheduleAtFixedRate(() -> exceptionEater(highQPSSuccessCommand), 100, 30, TimeUnit.MILLISECONDS);
+            executor.scheduleAtFixedRate(() -> exceptionEater(highQPSSuccessCommand), 100, 3, TimeUnit.MILLISECONDS);
             executor.scheduleAtFixedRate(() -> exceptionEater(failureCommand), 100, 100, TimeUnit.MILLISECONDS);
             executor.scheduleAtFixedRate(() -> exceptionEater(rejectedCommand), 100, 100, TimeUnit.MILLISECONDS);
             executor.scheduleAtFixedRate(() -> exceptionEater(antiEntropyCommand), 100, 50, TimeUnit.MILLISECONDS);
